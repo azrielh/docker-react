@@ -1,0 +1,13 @@
+# copy of docker running
+sudo: required
+# build image
+services:
+  - docker
+
+# run test suite with dev.Dockerfile - test files and suite
+before_install:
+  - docker build -t azrielh/docker-react -f dev.Dockerfile .
+# how to deploy to aws
+
+script:
+  - docker run azrielh/docker-react npm run test -- --coverage
